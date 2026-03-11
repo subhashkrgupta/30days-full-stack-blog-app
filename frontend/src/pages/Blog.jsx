@@ -117,7 +117,7 @@ const Blog = () => {
                 className="group cursor-pointer bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 flex flex-col h-full hover:-translate-y-1"
               >
                 {/* Header */}
-                <div className="relative p-6 bg-gradient-to-br from-gray-900 to-slate-800 text-white">
+                <div className="relative p-6 bg-linear-to-br from-gray-900 to-slate-800 text-white">
                   <div className="flex items-center justify-between gap-3">
                     <div className="text-xs font-bold uppercase tracking-wider text-indigo-200">
                       {post.category || "General"}

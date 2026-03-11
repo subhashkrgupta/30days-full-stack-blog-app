@@ -4,10 +4,10 @@ import Footer from "../component/footer";
 
 
 const MainLayout = () => {
-  const location = useLocation();
+  // const location = useLocation();
 
   // Check karein ki current path '/login' ya '/register' hai ya nahi
-  const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+  // const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <div className="">
