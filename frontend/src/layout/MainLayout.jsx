@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import NavBar from "../component/NavBar";
 import Footer from "../component/footer";
 
@@ -20,7 +20,7 @@ const MainLayout = () => {
       </main>
 
       {/* Agar AuthPage nahi hai, tabhi Footer dikhao */}
-      {!isAuthPage && <Footer />}
+      { <Footer />}
     </div>
   );
 };
