@@ -89,6 +89,33 @@ export const createBlog = async (req, res) => {
   }
 };
 
+export const getMyPosts = async (req, res) => {
+  try {
+    if (!req.user?._id) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized request",
+      });
+    }
+
+    const blogs = await Blog.find({ author: req.user._id })
+      .populate("author", "userName email")
+      .sort({ createdAt: -1 });
+
+    return res.status(200).json({
+      success: true,
+      count: blogs.length,
+      blogs,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch user blog posts",
+      error: error.message,
+    });
+  }
+};
+
 export const updateBlog = async (req, res) => {
   try {
     const blogId = req.params.id;

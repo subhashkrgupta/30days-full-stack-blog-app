@@ -8,6 +8,7 @@ import BlogDetail from "../pages/BlogDetail";
 import About from "../pages/About";
 import Dashboard from "../pages/dashboard/Dashboard";
 import CreateBlog from "../pages/dashboard/CreateBlog";
+import EditBlog from "../pages/dashboard/EditBlog";
 import ProtectedRoute from "../component/routes/ProtectedRoute";
 
 const AppRoutes = () => {
@@ -33,6 +34,14 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute>
               <CreateBlog />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="dashboard/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditBlog />
             </ProtectedRoute>
           }
         />
