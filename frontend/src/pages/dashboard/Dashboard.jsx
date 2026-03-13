@@ -95,7 +95,7 @@ const Dashboard = () => {
         <header className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
-              Hey, {user?.userName || "Writer"}! 👋
+              Hey, {user?.userName || "Writer"}
             </h1>
             <p className="text-slate-500 mt-2 max-w-md">
               Welcome back to your creator studio. Here’s what’s happening with your content.

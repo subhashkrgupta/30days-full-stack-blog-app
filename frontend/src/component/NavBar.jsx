@@ -10,8 +10,6 @@ const NavBar = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-
-
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +22,7 @@ const NavBar = () => {
   // Check auth state from localStorage
   useEffect(() => {
     const token = getValidAccessToken();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsLoggedIn(!!token);
   }, []);
 
@@ -41,7 +40,6 @@ const NavBar = () => {
   }, []);
 
   const handleLogout = () => {
-    // clear token on client
     localStorage.removeItem("accessToken");
     setIsLoggedIn(false);
     setUserMenuOpen(false);
@@ -51,8 +49,8 @@ const NavBar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Blog", path: "/blog" }, // Added for completeness
-    { name: "About", path: "/about" }, // Added for completeness
+    { name: "Blog", path: "/blog" },
+    { name: "About", path: "/about" },
   ];
 
   return (
@@ -70,6 +68,7 @@ const NavBar = () => {
           <Link 
             to="/" 
             className="text-2xl font-bold text-white tracking-tight flex items-center gap-1"
+            onClick={() => setIsOpen(false)} // Logo pe click karne se bhi close hoga
           >
             MyBlog
           </Link>
@@ -118,13 +117,38 @@ const NavBar = () => {
                 >
                   Dashboard
                 </Link>
-                <button
-                  onClick={() => setUserMenuOpen((prev) => !prev)}
-                  className="flex items-center gap-1 text-gray-300 hover:text-white text-sm font-medium focus:outline-none"
-                >
-                  <UserCircle2 size={22} />
-                  <ChevronDown size={16} />
-                </button>
+                <div className="relative">
+                  <button
+                    onClick={() => setUserMenuOpen((prev) => !prev)}
+                    className="flex items-center gap-1 text-gray-300 hover:text-white text-sm font-medium focus:outline-none"
+                  >
+                    <UserCircle2 size={22} />
+                    <ChevronDown size={16} />
+                  </button>
+
+                  {userMenuOpen && (
+                    <div className="absolute right-0 top-10 mt-2 w-40 bg-gray-900 border border-gray-700 rounded-lg shadow-lg py-2 text-sm z-50">
+                      <button
+                        onClick={() => {
+                          setUserMenuOpen(false);
+                          navigate("/dashboard");
+                        }}
+                        className="block w-full text-left px-4 py-2 text-gray-200 hover:bg-gray-800"
+                      >
+                        My Posts
+                      </button>
+                      <button
+                        onClick={() => {
+                          setUserMenuOpen(false);
+                          navigate("/settings");
+                        }}
+                        className="block w-full text-left px-4 py-2 text-gray-200 hover:bg-gray-800"
+                      >
+                        Settings
+                      </button>
+                    </div>
+                  )}
+                </div>
                 <button
                   onClick={handleLogout}
                   className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-all shadow-md hover:shadow-red-500/20"
@@ -132,29 +156,6 @@ const NavBar = () => {
                   Logout
                 </button>
               </>
-            )}
-
-            {isLoggedIn && userMenuOpen && (
-              <div className="absolute right-0 top-10 mt-2 w-40 bg-gray-900 border border-gray-700 rounded-lg shadow-lg py-2 text-sm z-50">
-                <button
-                  onClick={() => {
-                    setUserMenuOpen(false);
-                    navigate("/dashboard");
-                  }}
-                  className="block w-full text-left px-4 py-2 text-gray-200 hover:bg-gray-800"
-                >
-                  My Posts
-                </button>
-                <button
-                  onClick={() => {
-                    setUserMenuOpen(false);
-                    navigate("/dashboard");
-                  }}
-                  className="block w-full text-left px-4 py-2 text-gray-200 hover:bg-gray-800"
-                >
-                  Settings
-                </button>
-              </div>
             )}
           </div>
 
@@ -172,8 +173,6 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      {/* We use overflow-hidden and a transition on max-height for a smooth slide effect, 
-          or simple conditional rendering for clearer logic. Here is the clean conditional approach. */}
       {isOpen && (
         <div className="md:hidden bg-gray-900 border-t border-gray-800 absolute w-full left-0 animate-in slide-in-from-top-5 duration-200">
           <div className="px-4 py-6 space-y-4">
@@ -181,6 +180,8 @@ const NavBar = () => {
               <NavLink
                 key={link.name}
                 to={link.path}
+                // Yahan onClick handler add kiya hai
+                onClick={() => setIsOpen(false)} 
                 className={({ isActive }) =>
                   `block text-base font-medium px-4 py-2 rounded-lg transition-colors ${
                     isActive
@@ -200,12 +201,14 @@ const NavBar = () => {
                 <>
                   <Link
                     to="/login"
+                    onClick={() => setIsOpen(false)} // Login pe click karte hi menu band
                     className="w-full text-center text-gray-300 hover:text-white font-medium py-2"
                   >
                     Log in
                   </Link>
                   <Link
                     to="/register"
+                    onClick={() => setIsOpen(false)} // Register pe click karte hi menu band
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center py-3 rounded-lg font-medium transition flex items-center justify-center gap-2"
                   >
                     Get Started <ChevronRight size={16} />
@@ -216,7 +219,7 @@ const NavBar = () => {
                   <Link
                     to="/dashboard"
                     className="w-full text-center text-gray-300 hover:text-white font-medium py-2"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setIsOpen(false)} // Dashboard pe click karte hi menu band
                   >
                     Dashboard
                   </Link>
