@@ -11,6 +11,7 @@ import CreateBlog from "../pages/dashboard/CreateBlog";
 import EditBlog from "../pages/dashboard/EditBlog";
 import ProtectedRoute from "../component/routes/ProtectedRoute";
 import Setting from "../pages/dashboard/Setting";
+import Contact from "../pages/Contact";
 
 const AppRoutes = () => {
   return (
@@ -23,6 +24,8 @@ const AppRoutes = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="settings" element={<Setting  />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<div>404 Not Found</div>} />
     
         <Route
           path="dashboard"
