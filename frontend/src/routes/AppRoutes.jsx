@@ -12,11 +12,14 @@ import ProtectedRoute from "../component/routes/ProtectedRoute";
 import Setting from "../pages/dashboard/Setting";
 import Contact from "../pages/Contact";
 import BlogDetails from "../pages/BlogDetails";
+// import ScrollToTop from "../component/ScrollToTop";
 
 const AppRoutes = () => {
   return (
     <Routes>
+     
       <Route path="/" element={<MainLayout />}>
+      
         <Route index element={<Home />} />
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:id" element={<BlogDetails />} />
