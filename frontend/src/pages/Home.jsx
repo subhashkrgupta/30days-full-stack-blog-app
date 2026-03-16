@@ -153,7 +153,7 @@ const Home = () => {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {blogs.map((blog) => (
               <Link
-                to={`/blog/${blog.id}`}
+                to={`/blog`}
                 key={blog.id}
                 className="group bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-sm hover:shadow-2xl border border-gray-100 dark:border-gray-800 transition-all duration-300 hover:-translate-y-2 flex flex-col h-full cursor-pointer"
               >
