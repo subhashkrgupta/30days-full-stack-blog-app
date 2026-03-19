@@ -12,50 +12,55 @@ import ProtectedRoute from "../component/routes/ProtectedRoute";
 import Setting from "../pages/dashboard/Setting";
 import Contact from "../pages/Contact";
 import BlogDetails from "../pages/BlogDetails";
-// import ScrollToTop from "../component/ScrollToTop";
+// 1. ScrollToTop ko uncomment karein
+import ScrollToTop from "../component/ScrollToTop";
 
 const AppRoutes = () => {
   return (
-    <Routes>
-     
-      <Route path="/" element={<MainLayout />}>
-      
-        <Route index element={<Home />} />
-        <Route path="blog" element={<Blog />} />
-        <Route path="blog/:id" element={<BlogDetails />} />
-        <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="settings" element={<Setting  />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="*" element={<div>404 Not Found</div>} />
-    
-        <Route
-          path="dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="dashboard/create"
-          element={
-            <ProtectedRoute>
-              <CreateBlog />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="dashboard/edit/:id"
-          element={
-            <ProtectedRoute>
-              <EditBlog />
-            </ProtectedRoute>
-          }
-        />
-      </Route>
-    </Routes>
+    <>
+      {/* 2. <Routes> ke bilkul upar ise rakhein */}
+      <ScrollToTop />
+
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:id" element={<BlogDetails />} />
+          <Route path="about" element={<About />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="settings" element={<Setting />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<div>404 Not Found</div>} />
+
+          {/* Dashboard Protected Routes */}
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="dashboard/create"
+            element={
+              <ProtectedRoute>
+                <CreateBlog />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="dashboard/edit/:id"
+            element={
+              <ProtectedRoute>
+                <EditBlog />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
+      </Routes>
+    </>
   );
 };
 
