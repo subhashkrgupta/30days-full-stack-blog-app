@@ -23,5 +23,6 @@ app.get('/',(req,res)=>{
 
 app.use('/api/v1',userRoute);
 app.use('/api/v1/blogs',blogRoute)
+app.use('/api/v1/chat',aichatRoute)
 
 export  {app}

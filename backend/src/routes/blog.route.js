@@ -21,4 +21,5 @@ router.post('/', verifyJwt, createBlog);
 router.put('/:id', verifyJwt, updateBlog);
 router.delete('/:id', verifyJwt, deleteBlog);
 
+
 export default router
