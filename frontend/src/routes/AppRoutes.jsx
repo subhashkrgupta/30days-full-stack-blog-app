@@ -12,13 +12,11 @@ import ProtectedRoute from "../component/routes/ProtectedRoute";
 import Setting from "../pages/dashboard/Setting";
 import Contact from "../pages/Contact";
 import BlogDetails from "../pages/BlogDetails";
-// 1. ScrollToTop ko uncomment karein
 import ScrollToTop from "../component/ScrollToTop";
 
 const AppRoutes = () => {
   return (
     <>
-      {/* 2. <Routes> ke bilkul upar ise rakhein */}
       <ScrollToTop />
 
       <Routes>
