@@ -5,6 +5,7 @@ import cors from 'cors';
 dotenv.config();
 import userRoute from './routes/user.route.js'
 import blogRoute from './routes/blog.route.js'
+import aichatRoute from './routes/aichatRoute.js'
 
 
 const app = express();
