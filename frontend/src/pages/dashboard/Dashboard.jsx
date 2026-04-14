@@ -33,7 +33,15 @@ const Dashboard = () => {
           withCredentials: true,
         });
 
-        setPosts(postsResp.data.blogs || []);
+        const allBlogs = postsResp.data.blogs || postsResp.data.data || [];
+        
+        // Filter blogs to show only those created by the logged-in user
+        const myBlogs = allBlogs.filter((post) => {
+          const authorId = post.author?._id || post.author;
+          return currentUser?._id && authorId === currentUser._id;
+        });
+
+        setPosts(myBlogs);
       } catch (err) {
         console.error(err);
         setError(err.response?.data?.message || "Unable to load dashboard data.");
