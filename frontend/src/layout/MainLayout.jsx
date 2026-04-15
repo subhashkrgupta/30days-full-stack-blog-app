@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import NavBar from "../component/NavBar";
 import Footer from "../component/footer";
+import ChatBot from "../component/ChatBot";
 
 
 const MainLayout = () => {
@@ -21,6 +22,9 @@ const MainLayout = () => {
 
       {/* Agar AuthPage nahi hai, tabhi Footer dikhao */}
       {!isAuthPage && <Footer />}
+
+      {/* Floating AI Chatbot Widget */}
+      {!isAuthPage && <ChatBot />}
     </div>
   );
 };

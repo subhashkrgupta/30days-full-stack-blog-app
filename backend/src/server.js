@@ -2,11 +2,11 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-dotenv.config();
 import userRoute from './routes/user.route.js'
 import blogRoute from './routes/blog.route.js'
 import aichatRoute from './routes/aichatRoute.js'
 
+dotenv.config();
 
 const app = express();
 
