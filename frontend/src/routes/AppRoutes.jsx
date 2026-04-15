@@ -13,6 +13,8 @@ import Setting from "../pages/dashboard/Setting";
 import Contact from "../pages/Contact";
 import BlogDetails from "../pages/BlogDetails";
 import ScrollToTop from "../component/ScrollToTop";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import TermsOfService from "../pages/TermsOfService";
 
 const AppRoutes = () => {
   return (
@@ -29,6 +31,8 @@ const AppRoutes = () => {
           <Route path="register" element={<Register />} />
           <Route path="settings" element={<Setting />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-of-service" element={<TermsOfService />} />
           <Route path="*" element={<div>404 Not Found</div>} />
 
           {/* Dashboard Protected Routes */}
