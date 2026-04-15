@@ -1,18 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import NavBar from "../component/NavBar";
 import Footer from "../component/footer";
 
 
 const MainLayout = () => {
-  // const location = useLocation();
+  const location = useLocation();
 
   // Check karein ki current path '/login' ya '/register' hai ya nahi
-  // const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <div className="">
       {/* Agar AuthPage nahi hai, tabhi NavBar dikhao */}
-       <NavBar />
+      {!isAuthPage && <NavBar />}
 
     
       <main className="grow  flex flex-col min-h-screen">
@@ -20,7 +20,7 @@ const MainLayout = () => {
       </main>
 
       {/* Agar AuthPage nahi hai, tabhi Footer dikhao */}
-      { <Footer />}
+      {!isAuthPage && <Footer />}
     </div>
   );
 };

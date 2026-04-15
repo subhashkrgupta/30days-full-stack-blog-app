@@ -48,11 +48,11 @@ const Login = () => {
 
   return (
     // Background updated for Dark Mode
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8 pt-24 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col justify-center px-4 py-12 sm:px-6 lg:px-8 pt-24 transition-colors duration-300">
       
       {/* Header Section */}
-      <div className="sm:mx-auto sm:w-full sm:max-w-md text-center mb-6">
-        <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+      <div className="mx-auto w-full max-w-md text-center mb-6">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
           Welcome back
         </h2>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
@@ -61,9 +61,9 @@ const Login = () => {
       </div>
 
       {/* Form Card */}
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="mx-auto w-full max-w-md">
         {/* Card background and border updated for Dark Mode */}
-        <div className="bg-white dark:bg-gray-800 py-8 px-4 shadow-xl shadow-gray-200 dark:shadow-none border border-gray-100 dark:border-gray-700 sm:rounded-2xl sm:px-10">
+        <div className="bg-white dark:bg-gray-800 py-8 px-4 sm:px-10 shadow-xl shadow-gray-200 dark:shadow-none border border-gray-100 dark:border-gray-700 rounded-2xl">
           
           <form className="space-y-6" onSubmit={handleLogin}>
             
@@ -169,7 +169,7 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-3">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button className="w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition">
                 <span className="sr-only">Sign in with Google</span>
                 Google

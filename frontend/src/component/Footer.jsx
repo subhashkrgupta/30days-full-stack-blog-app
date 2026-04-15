@@ -10,7 +10,7 @@ const Footer = () => {
     { name: "About Us", path: "/about" },
     { name: "Blog", path: "/blog" },
     { name: "Careers", path: "#" },
-    { name: "Contact", path: "#" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -152,12 +152,12 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            </Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
