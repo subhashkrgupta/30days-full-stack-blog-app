@@ -3,10 +3,7 @@ import axios from "axios";
 import { MessageCircle, X, Send, Loader2, Bot, User } from "lucide-react";
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-    apiKey: process.env.GROQ_API_KEY, // Ya jo bhi API key aap use kar rahe hain
-    baseURL: "https://api.groq.com/openai/v1" // Agar Llama3 (Groq) use kar rahe hain
-});
+
 
 
 const ChatBot = () => {
@@ -34,7 +31,7 @@ const ChatBot = () => {
     // API call me error handling add ki hai
     try {
       // Apne backend ka complete URL use karein
-      const res = await axios.post("http://localhost:3000/api/chat", {
+      const res = await axios.post("http://localhost:3000/api/v1/chat", {
         prompt: message, // Backend 'prompt' expect kar raha hai
       });
 
@@ -52,7 +49,7 @@ const ChatBot = () => {
     <div className="fixed bottom-6 right-6 z-50 font-sans">
       {/* Chat Window */}
       {isOpen && (
-        <div className="bg-white dark:bg-gray-900 w-80 md:w-96 h-[30rem] rounded-2xl shadow-2xl flex flex-col border border-gray-200 dark:border-gray-800 mb-4 overflow-hidden animate-in slide-in-from-bottom-5 duration-300">
+        <div className="bg-white dark:bg-gray-900 w-80 md:w-96 h-120 rounded-2xl shadow-2xl flex flex-col border border-gray-200 dark:border-gray-800 mb-4 overflow-hidden animate-in slide-in-from-bottom-5 duration-300">
           {/* Header */}
           <div className="bg-indigo-600 text-white px-4 py-3 flex justify-between items-center shadow-md">
             <h3 className="font-semibold flex items-center gap-2">
